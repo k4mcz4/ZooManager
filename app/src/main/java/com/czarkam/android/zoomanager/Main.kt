@@ -15,7 +15,6 @@ fun main() {
             print("Age: ")
             for (animal in animalList.animalList.iterator()) {
                 print(" ${animal.age}/${animal.getMaxAge()} || ")
-
             }
             println("")
             println("")

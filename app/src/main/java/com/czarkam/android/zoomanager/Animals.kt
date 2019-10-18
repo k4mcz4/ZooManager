@@ -3,11 +3,12 @@ package com.czarkam.android.zoomanager
 import java.util.concurrent.ThreadLocalRandom
 
 class Animal(
-    private val speciesAttributes: AnimalSpecies,
-    private var isDeceased: Boolean = false,
-    val isFemale: Boolean = ThreadLocalRandom.current().nextBoolean(),
-    private val isNewBorn: Boolean = false
+    private val speciesAttributes: AnimalTypes
 ) {
+
+    var isDeceased: Boolean = false; private set
+    var isFemale: Boolean = ThreadLocalRandom.current().nextBoolean()
+    var isNewBorn: Boolean = false; private set
 
     var age: Int = if (isNewBorn) {
         1
@@ -24,7 +25,7 @@ class Animal(
         return speciesAttributes.maxWeight
     }
 
-    fun getName(): String{
+    fun getName(): String {
         return speciesAttributes.name
     }
 
@@ -40,37 +41,45 @@ class Animal(
     fun feed(): Int {
         if (!isDeceased) {
             weight += speciesAttributes.weightGain
-            aging()
         }
         return weight
     }
 
-    fun makeSound(): Int {
+    fun starve(): Int {
         if (!isDeceased) {
             weight -= speciesAttributes.weightGain / 2
-            aging()
-            println(speciesAttributes.sound)
         }
         return weight
+    }
+
+    fun makeSound() {
+        if (!isDeceased) {
+            println(speciesAttributes.sound)
+        }
     }
 
     private fun terminate() {
         isDeceased = true
     }
 
-    fun isDeceased(): Boolean {
-        return isDeceased
+
+}
+
+data class AnimalList(var animalList: List<Animal>) {
+
+    fun balanceGender() {
+        var femaleCounter = 0
+        for (animal in animalList) {
+            if (animal.isFemale) {
+                femaleCounter++
+            }
+        }
+        when (femaleCounter) {
+            animalList.size -> animalList.first().isFemale = false
+            0 -> animalList.first().isFemale = true
+        }
     }
 
 }
 
-data class AnimalSpecies(
-    val weightGain: Int,
-    val maxWeight: Int,
-    val maxAge: Int,
-    val sound: String,
-    val birthDuration: Int,
-    val name: String
-)
-data class AnimalList(var animalList: List<Animal>)
 data class Zoo(var animals: List<AnimalList>)

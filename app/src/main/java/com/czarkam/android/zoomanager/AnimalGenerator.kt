@@ -1,24 +1,28 @@
 package com.czarkam.android.zoomanager
 
+import java.util.concurrent.ThreadLocalRandom
+
 class AnimalGenerator {
 
     fun generateHerd(): Zoo {
 
-        var animalTypes = AnimalTypes.getAnimalList()
+        var animalTypes = AnimalTypes.values()
         var animalHerd = Zoo(mutableListOf())
 
         for (animalType in animalTypes.iterator()) {
-            animalHerd.animals =  animalHerd.animals + generateAnimals(animalType)
+            animalHerd.animals += generateAnimals(animalType)
         }
         return animalHerd
     }
 
-    private fun generateAnimals(animalType: AnimalSpecies): AnimalList {
+    private fun generateAnimals(animalType: AnimalTypes): AnimalList {
 
         var animals = AnimalList(mutableListOf())
+        val loops = ThreadLocalRandom.current().nextInt(2,7)
 
-        for (x in 2..5) {
-            animals.animalList = animals.animalList + Animal(animalType)
+        for (x in 1..loops) {
+            //TODO Change numbers in for loop to something more random
+            animals.animalList += Animal(animalType)
         }
 
         return animals
