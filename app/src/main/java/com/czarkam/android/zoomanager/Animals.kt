@@ -24,6 +24,10 @@ class Animal(
         return speciesAttributes.maxWeight
     }
 
+    fun getName(): String{
+        return speciesAttributes.name
+    }
+
     fun aging(): Int {
         if (age > speciesAttributes.maxAge || weight > speciesAttributes.maxWeight || weight <= 0) {
             terminate()
@@ -65,7 +69,8 @@ data class AnimalSpecies(
     val maxWeight: Int,
     val maxAge: Int,
     val sound: String,
-    val birthDuration: Int
+    val birthDuration: Int,
+    val name: String
 )
-
-data class AnimalHerd(val animalType: List<Animal>)
+data class AnimalList(var animalList: List<Animal>)
+data class Zoo(var animals: List<AnimalList>)

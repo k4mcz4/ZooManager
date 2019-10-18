@@ -2,35 +2,30 @@ package com.czarkam.android.zoomanager
 
 
 fun main() {
-    var wolf = Animal(AnimalTypes.WOLVES)
+    var animals = AnimalGenerator().generateHerd()
     var exit = false
     var round = 1
 
-    while(!exit) {
+    while (!exit) {
 
         println("Round $round")
 
-        if(wolf.isDeceased()){
-            println("I died :<")
-        } else {
-            println("Age: ${wolf.age} / ${wolf.getMaxAge()}")
-            println("Weight: ${wolf.weight} / ${wolf.getMaxWeight()}")
+        for (animalList in animals.animals.iterator()) {
+            println("Animal: ${animalList.animalList.first().getName()}")
+            print("Age: ")
+            for (animal in animalList.animalList.iterator()) {
+                print(" ${animal.age}/${animal.getMaxAge()} || ")
+
+            }
+            println("")
+            println("")
         }
 
-        val input = readLine()
+        exit = true
 
-        when(input){
-            "1" -> wolf.feed()
-            "2" -> wolf.makeSound()
-            "exit" -> exit = true
-            "restart" -> wolf = Animal(AnimalTypes.WOLVES)
-            else -> println("Enter again")
-        }
-
-        println("\n")
-        round += 1
 
     }
+
 
 }
 

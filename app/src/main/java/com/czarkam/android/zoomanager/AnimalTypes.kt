@@ -1,13 +1,14 @@
 package com.czarkam.android.zoomanager
 
-class AnimalTypes{
+class AnimalTypes {
     companion object {
         val WOLVES = AnimalSpecies(
             weightGain = 5,
             maxAge = 10,
             sound = "Auuuu",
             birthDuration = 4,
-            maxWeight = 40
+            maxWeight = 40,
+            name = "Wolves"
         )
 
         val PARROTS = AnimalSpecies(
@@ -15,7 +16,8 @@ class AnimalTypes{
             maxAge = 7,
             sound = "Kraaa?",
             birthDuration = 2,
-            maxWeight = 10
+            maxWeight = 10,
+            name = "Parrots"
         )
 
         val SEALS = AnimalSpecies(
@@ -23,7 +25,8 @@ class AnimalTypes{
             maxAge = 14,
             sound = "Onk Onk",
             birthDuration = 3,
-            maxWeight = 55
+            maxWeight = 55,
+            name = "Seals"
         )
 
         val WHALE = AnimalSpecies(
@@ -31,7 +34,8 @@ class AnimalTypes{
             maxAge = 200,
             sound = "Thwops in 20Hz",
             birthDuration = 20,
-            maxWeight = 300
+            maxWeight = 300,
+            name = "Whales"
         )
 
         val ELEPHANT = AnimalSpecies(
@@ -39,7 +43,17 @@ class AnimalTypes{
             maxAge = 210,
             sound = "Pawooo!",
             birthDuration = 20,
-            maxWeight = 300
+            maxWeight = 300,
+            name = "Elephants"
         )
+
+        fun getAnimalList(): List<AnimalSpecies> {
+            return listOf(WOLVES, PARROTS, SEALS, WHALE, ELEPHANT)
+        }
+
+        fun getAnimalListSize(): Int{
+            return getAnimalList().size
+        }
     }
+
 }
