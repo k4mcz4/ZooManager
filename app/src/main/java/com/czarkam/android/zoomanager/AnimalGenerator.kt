@@ -21,7 +21,6 @@ class AnimalGenerator {
         val loops = ThreadLocalRandom.current().nextInt(2,7)
 
         for (x in 1..loops) {
-            //TODO Change numbers in for loop to something more random
             animals.animalList += Animal(animalType)
         }
 
