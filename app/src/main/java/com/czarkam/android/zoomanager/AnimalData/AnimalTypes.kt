@@ -1,4 +1,4 @@
-package com.czarkam.android.zoomanager
+package com.czarkam.android.zoomanager.AnimalData
 
 enum class AnimalTypes(
     val weightGain: Int,

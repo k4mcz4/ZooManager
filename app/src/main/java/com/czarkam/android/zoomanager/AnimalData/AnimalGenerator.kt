@@ -1,4 +1,4 @@
-package com.czarkam.android.zoomanager
+package com.czarkam.android.zoomanager.AnimalData
 
 import java.util.concurrent.ThreadLocalRandom
 
@@ -18,7 +18,7 @@ class AnimalGenerator {
     private fun generateAnimals(animalType: AnimalTypes): AnimalList {
 
         var animals = AnimalList(mutableListOf())
-        val loops = ThreadLocalRandom.current().nextInt(2,7)
+        val loops = ThreadLocalRandom.current().nextInt(2, 7)
 
         for (x in 1..loops) {
             animals.animalList += Animal(animalType)
