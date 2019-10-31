@@ -72,7 +72,12 @@ class Animal(
         return weight
     }
 
-    fun makeSound() {
+    fun training() {
+        this.starve()
+        this.makeSound()
+    }
+
+    private fun makeSound() {
         if (!isDeceased) {
             println(speciesAttributes.sound)
         }

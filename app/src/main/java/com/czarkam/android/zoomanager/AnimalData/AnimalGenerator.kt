@@ -21,7 +21,7 @@ class AnimalGenerator {
         val loops = ThreadLocalRandom.current().nextInt(2, 7)
 
         for (x in 1..loops) {
-            animals.animalList += Animal(animalType)
+            animals.animalList.add(Animal(animalType))
         }
 
         return animals

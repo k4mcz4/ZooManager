@@ -2,7 +2,7 @@ package com.czarkam.android.zoomanager.AnimalData
 
 import com.czarkam.android.zoomanager.System.RenderSpaces
 
-data class AnimalList(var animalList: List<Animal>) {
+data class AnimalList(var animalList: MutableList<Animal>) {
 
     fun balanceGender() {
         var femaleCounter = 0

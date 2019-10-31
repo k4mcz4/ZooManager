@@ -1,6 +1,7 @@
 package com.czarkam.android.zoomanager.System
 
 import com.czarkam.android.zoomanager.AnimalData.AnimalList
+import com.czarkam.android.zoomanager.AnimalData.AnimalTypes
 import com.czarkam.android.zoomanager.AnimalData.Zoo
 
 class ScreenRender {
@@ -48,6 +49,14 @@ class ScreenRender {
         }
 
         return clearArray
+    }
+
+    fun displayOptions(){
+        println()
+        println("Pick animals: ")
+        for((index,animal) in AnimalTypes.values().iterator().withIndex()){
+            println("${index+1} - ${animal.name}")
+        }
     }
 
 
