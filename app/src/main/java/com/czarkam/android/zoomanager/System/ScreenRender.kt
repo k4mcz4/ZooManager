@@ -1,5 +1,6 @@
 package com.czarkam.android.zoomanager.System
 
+import com.czarkam.android.zoomanager.AnimalData.Animal
 import com.czarkam.android.zoomanager.AnimalData.AnimalList
 import com.czarkam.android.zoomanager.AnimalData.AnimalTypes
 import com.czarkam.android.zoomanager.AnimalData.Zoo
@@ -51,12 +52,21 @@ class ScreenRender {
         return clearArray
     }
 
-    fun displayOptions(){
+    fun displayAnimalOptions(){
         println()
         println("Pick animals: ")
         for((index,animal) in AnimalTypes.values().iterator().withIndex()){
             println("${index+1} - ${animal.name}")
         }
+    }
+
+    fun displayActionOptions(animal: Animal){
+        println()
+        println("You picked: ${animal.getName()}")
+        println("Pick action:")
+        println("1 - Feed")
+        println("2 - Walk the animals")
+        println("3 - Train")
     }
 
 

@@ -50,7 +50,7 @@ class Animal(
     }
 
     fun aging(): Int {
-        if (age > speciesAttributes.maxAge || weight > speciesAttributes.maxWeight || weight <= 0) {
+        if (age >= speciesAttributes.maxAge || weight >= speciesAttributes.maxWeight || weight <= 0) {
             terminate()
         } else {
             age += 1
@@ -67,7 +67,7 @@ class Animal(
 
     fun starve(): Int {
         if (!isDeceased) {
-            weight -= speciesAttributes.weightGain / 2
+            weight -= speciesAttributes.weightGain
         }
         return weight
     }
